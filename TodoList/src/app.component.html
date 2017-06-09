@@ -1,0 +1,37 @@
+<!--The whole content below can be removed with the new code.-->
+<div class="m-a-10">
+<h2 class="bg-primary m-a-10">
+     {{ getName()}}'s To Do List
+  </h2> 
+  </div>
+  <div class="m-t-10 m-b-10" >
+    
+  <input class="form-control" #todoText />
+  <button class="btn btn-primary m-a-10" (click)="addItem(todoText.value)">Add</button>  
+   </div>
+<div class="m-a-10">
+  
+     <table class="table table-striped table-bordered">
+      <thead>
+          <tr><th></th><th>Description</th><th>Done</th></tr>
+
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of getTodoItems(); let i = index">
+
+          <td>{{ i + 1 }}</td>
+          <td> {{ item.action }}</td>
+          <td><input type="checkbox" [(ngModel)]="item.done"></td>
+          <td [ngSwitch] = "item.done" > 
+              <span *ngSwitchCase = "true">Yes</span>
+              <span *ngSwitchDefault>No</span>   
+          </td>
+        </tr>
+      </tbody>
+     </table>
+  
+  
+  
+  
+ 
+</div>
